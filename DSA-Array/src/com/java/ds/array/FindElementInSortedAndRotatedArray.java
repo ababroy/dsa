@@ -1,4 +1,6 @@
-package com.java.ds.array.search;
+package com.java.ds.array;
+
+import com.java.ds.util.Utility;
 
 /**
  * INCOMPLETE
@@ -8,29 +10,29 @@ package com.java.ds.array.search;
  */
 public class FindElementInSortedAndRotatedArray
 {
-    public static int se = 3;
+    public static int se = 4;
 
     public static void main ( String[] args )
     {
         int[] arr = { 4, 5, 6, 7, 8, 1, 2, 3 };// { 9, 12, 15, 17, 25, 28, 32, 37, 3, 5, 7, 8 };
 
-        int pivotIndex = findPivot( arr );
+        int pivotIndex = Utility.getPivotIndex( 0, arr.length-1, arr );
         System.out.println( "Pivot Index: " + pivotIndex + " Value: " + arr[ pivotIndex ] );
 
         int start = 0;
-        int end = arr.length;
+        int end = arr.length-1;
         if ( se == arr[ pivotIndex ] )
         {
             System.out.println( "Element found at the index of " + pivotIndex );
         }
-        else if ( se > arr[ pivotIndex ] )
+        else if ( se > arr[ pivotIndex] && se < arr[end])
         {
-            end = pivotIndex - 1;
+            start = pivotIndex + 1;
 
         }
         else
         {
-            start = pivotIndex + 1;
+            end = pivotIndex - 1;
         }
         findElement( start, end, arr );
 
