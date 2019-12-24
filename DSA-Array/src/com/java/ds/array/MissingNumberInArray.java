@@ -10,6 +10,13 @@ public class MissingNumberInArray
         xorFormula( arr );
     }
 
+    /**
+     * XOR Formula
+     * 
+     * Time Complexity: O(n)
+     * 
+     * @param arr
+     */
     private static void xorFormula ( int[] arr )
     {
         int getLastNumber = arr[ arr.length - 1 ];
@@ -34,6 +41,8 @@ public class MissingNumberInArray
 
     /**
      * Sum Formula
+     * 
+     * Time Complexity: O(n)
      * 
      * @param arr
      */
