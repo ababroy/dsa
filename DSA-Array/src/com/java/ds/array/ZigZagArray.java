@@ -6,7 +6,7 @@ public class ZigZagArray
 {
     public static void main ( String[] args )
     {
-        int[] arr = { 8,4,5,3,5,1,10,9 };// { 3, 4, 6, 2, 1, 8, 9 };
+        Integer[] arr = { 8,4,5,3,5,1,10,9 };// { 3, 4, 6, 2, 1, 8, 9 };
 
         Utility.printArray( arr );
 
