@@ -3,7 +3,13 @@ package com.java.ds.util;
 /**
  * Array Utility Class
  * 
- * 1. printArray 2. swap 3. getPivotIndex
+ * 1. printArray
+ * 
+ * 2. swap
+ * 
+ * 3. getPivotIndex
+ * 
+ * 4. GCD
  * 
  * @author royabhix
  *
@@ -70,6 +76,25 @@ public final class Utility
         arr[ number1 ] = arr[ number1 ] - arr[ number2 ]; // i = 30 - 10 = 20
 
         return arr;
+    }
+
+    /**
+     * GCD
+     * 
+     * @param num1
+     * @param num2
+     * @return
+     */
+    public static int gcd ( int num1, int num2 )
+    {
+        if ( num2 == 0 )
+        {
+            return num1;
+        }
+        else
+        {
+            return gcd( num2, num1 % num2 );
+        }
     }
 
 }
