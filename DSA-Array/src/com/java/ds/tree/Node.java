@@ -8,13 +8,13 @@ package com.java.ds.tree;
  */
 public class Node
 {
-    Node leftChild;
+    public Node leftChild;
 
-    Node rightChild;
+    public Node rightChild;
 
-    int data;
+    public int data;
 
-    Node ( int data )
+    public Node ( int data )
     {
         this.data = data;
     }
