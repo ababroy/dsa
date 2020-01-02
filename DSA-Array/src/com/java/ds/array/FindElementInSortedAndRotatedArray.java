@@ -1,7 +1,5 @@
 package com.java.ds.array;
 
-import com.java.ds.util.Utility;
-
 /**
  * INCOMPLETE
  * 
@@ -10,13 +8,13 @@ import com.java.ds.util.Utility;
  */
 public class FindElementInSortedAndRotatedArray
 {
-    public static int se = 4;
+    public static int se = 3;
 
     public static void main ( String[] args )
     {
         int[] arr = { 4, 5, 6, 7, 8, 1, 2, 3 };// { 9, 12, 15, 17, 25, 28, 32, 37, 3, 5, 7, 8 };
 
-        int pivotIndex = Utility.getPivotIndex( 0, arr.length-1, arr );
+        int pivotIndex = findPivot( arr );
         System.out.println( "Pivot Index: " + pivotIndex + " Value: " + arr[ pivotIndex ] );
 
         int start = 0;

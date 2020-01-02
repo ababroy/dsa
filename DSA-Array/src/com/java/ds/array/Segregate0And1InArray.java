@@ -5,7 +5,7 @@ public class Segregate0And1InArray
 {
     public static void main ( String[] args )
     {
-        int arr[] = { 0, 0, 1, 0, 1, 1, 0, 1 };
+        Integer arr[] = { 0, 0, 1, 0, 1, 1, 0, 1 };
         int len = arr.length;
         int count = 0;
         for ( int i = 0; i < len; i++ )

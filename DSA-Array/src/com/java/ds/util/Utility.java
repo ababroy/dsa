@@ -50,11 +50,11 @@ public final class Utility
     /**
      * To print elements of an array
      * 
-     * @param min_jump_arr
+     * @param arr
      */
-    public static void printArray ( int[] min_jump_arr )
+    public static < T > void printArray ( T[] arr )
     {
-        for ( int i : min_jump_arr )
+        for ( T i : arr )
         {
             System.out.print( i + " " );
         }
@@ -67,7 +67,7 @@ public final class Utility
      * @param number1
      * @param number2
      */
-    public static int[] swap ( int number1, int number2, int[] arr )
+    public static Integer[] swap ( int number1, int number2, Integer[] arr )
     {
 
         // i= 10 , j= 20
