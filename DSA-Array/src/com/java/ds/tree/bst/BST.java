@@ -66,8 +66,8 @@ public class BST
         // bst.addNode( 15 );
 
         bst.printTree();
-
-        bst.deleteNode( 3 );
+        System.out.println(  );
+        bst.deleteNode( 8 );
         System.out.println();
         bst.printTree();
 
@@ -118,7 +118,10 @@ public class BST
         {
             if ( left.leftChild == null && left.rightChild == null )
             {
-                tNode.leftChild = null;
+                if ( tNode.leftChild.data == data )
+                    tNode.leftChild = null;
+                else
+                    System.out.println( "Data not found in the tree" );
             }
             else
             {
@@ -129,7 +132,10 @@ public class BST
         {
             if ( right.leftChild == null && right.rightChild == null )
             {
-                tNode.rightChild = null;
+                if ( tNode.rightChild.data == data )
+                    tNode.rightChild = null;
+                else
+                    System.out.println( "Data not found in the tree" );
             }
             else
             {
@@ -144,19 +150,19 @@ public class BST
         Node lTemp = tmpRight.leftChild;
         Node llTemp = null;
         Node lrTemp = null;
-        
+
         if ( tmpRight.rightChild != null )
         {
             goMaxRightNode( target, tmpRight.rightChild );
         }
-        else if( tmpRight.leftChild == null)
+        else if ( tmpRight.leftChild == null )
         {
             target.data = tmpRight.data;
             targetLeft.rightChild = null;
         }
         else
         {
-            llTemp = lTemp.leftChild ;
+            llTemp = lTemp.leftChild;
             lrTemp = lTemp.rightChild;
             target.data = tmpRight.data;
             tmpRight.data = tmpRight.leftChild.data;
