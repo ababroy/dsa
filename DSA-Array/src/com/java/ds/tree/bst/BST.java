@@ -67,7 +67,7 @@ public class BST
 
         bst.printTree();
         System.out.println(  );
-        bst.deleteNode( 8 );
+        bst.deleteNode( 50 );
         System.out.println();
         bst.printTree();
 
@@ -166,7 +166,7 @@ public class BST
             lrTemp = lTemp.rightChild;
             target.data = tmpRight.data;
             tmpRight.data = tmpRight.leftChild.data;
-            tmpRight.leftChild = lTemp;
+            tmpRight.leftChild = llTemp;
             tmpRight.rightChild = lrTemp;
 
         }

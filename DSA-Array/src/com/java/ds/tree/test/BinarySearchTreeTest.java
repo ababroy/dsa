@@ -48,7 +48,7 @@ public class BinarySearchTreeTest
 
         bst.printTree();
         System.out.println();
-        bst.deleteNode( 8 );
+        bst.deleteNode( 50 );
         System.out.println();
         bst.printTree();
     }
