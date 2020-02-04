@@ -2,70 +2,67 @@ package com.java.ds.array;
 
 public class TrappingRainWater
 {
-    public static int trap = 0;
-
     public static void main ( String[] args )
     {
-        int trap = getTrappedRainWater();
-        System.out.println( "Trapping rain water:" + trap );
+        // int arr[] = { 3, 0, 0, 2, 0, 4 }; // 10
+        // int arr[] = { 0, 1, 0, 2, 1, 0, 1, 3, 3, 1, 2, 1 }; // 6
+        // int arr[] = { 3, 1, 2 }; // 1
+        // int[] arr = { 7, 4, 0, 9 }; // 10
+        // int arr[] = { 8, 8, 2, 4, 5, 5, 1 }; // 4
+        // int arr[] = {6,9,9}; // 0
+        int arr[] = { 1, 1, 5, 2, 7, 6, 1, 4, 2, 3 }; // 7
+        int trap = 0;
+        if ( arr.length < 2 )
+        {
+            System.out.println( "Trapping rain water:" + trap );
+        } // Check for less than 2 array length [unable to trap water]
+        else
+        {
+            trap = getTrappedRainWater( trap, arr, 0 );
+            System.out.println( "Trapping rain water:" + trap );
+        }
     }
 
-    private static int getTrappedRainWater ()
+    private static int getTrappedRainWater ( int trap, int[] arr, int start )
     {
-//         int arr[] = { 3, 0, 0, 2, 0, 4 };
-//        int arr[] = { 0, 1, 0, 2, 1, 0, 1, 3, 3, 1, 2, 1 };
-//         int arr[] = { 3, 1, 2 };
-//         int[] arr = {7, 4, 0, 9};
-
-         int arr[] = { 8, 8, 2, 4, 5, 5, 1 };
-        int start = 0;
-
-        // for start with zero value
-        while ( arr[ start ] <= 0 )
+        int secondMax = start;
+        for ( int s = start; s < arr.length; s++ )
         {
-            start = start + 1;
+            if ( arr[ start ] > arr[ s ] )
+            {
+                if ( arr[ secondMax ] == arr[ s ] )
+                    continue;
+                if ( arr[ secondMax ] < arr[ s ] )
+                {
+                    secondMax = s;
+                }
+            }
+            else if ( arr[ start ] <= arr[ s ] )
+            {
+                for ( int i = start; i < s; i++ )
+                {
+                    trap = trap + ( arr[ start ] - arr[ i ] );
+                }
+                start = s;
+                secondMax = start + 1;
+            } // increment start element if start can't trap rain water
         }
 
-        trap( arr, start );
-
+        trap = trap( trap, arr, start, secondMax );
+        if ( secondMax < arr.length - 1 )
+        {
+            start = secondMax;
+            trap = getTrappedRainWater( trap, arr, start ); // Recurse until 2ndMax reached to the end of array
+        }
         return trap;
     }
 
-    private static void trap ( int[] arr, int start )
+    private static int trap ( int trap, int[] arr, int start, int end )
     {
-        for ( int a = start; a < arr.length; a++ )
+        for ( int a = start + 1; a < end; a++ )
         {
-
-            int startVal = arr[ start ];
-            int nxtVal = arr[ a ];
-            System.out.println( "val " + nxtVal + " start: " + startVal + " == val > start : " + ( nxtVal > startVal ) );
-            boolean flag = false;
-
-            if ( nxtVal >= startVal )
-            {
-                for ( int i = start; i < a; i++ )
-                {
-                    // trap = trap + ( arr[ start ] - arr[ i ] );
-                    trap = trap + ( arr[ start ] - arr[ i ] );
-                    flag = true;
-                }
-                start = a;
-            }
-            if ( flag == false && a == arr.length - 1 )
-            {
-                int get2ndMax = 0;
-                for ( int i = a; i > start; i-- )
-                {
-                    if ( arr[ i ] > get2ndMax )
-                    {
-                        get2ndMax = arr[ i ];
-                    }
-                }
-                trap = trap + ( arr[ start ] - get2ndMax );
-                flag = true;
-                //trap( arr, start + 1 );
-            }
-
+            trap = trap + ( arr[ end ] - arr[ a ] );
         }
+        return trap;
     }
 }
